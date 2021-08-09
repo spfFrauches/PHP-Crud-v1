@@ -25,45 +25,29 @@ class CoreBasicRouterController
                     $method = $url[0];
                     var_dump ($method);
                     array_shift($url);
+                    
+                    /* Os demais parametros da URL vão como parametro para os métodos */
                     $params = $url;
+                    
+                    if (!class_exists($controller)) {  
+                        $controller = "NotFoundController";
+                        $method = "pageNotFound"; 
+                    }
+                    
+                    var_dump ($controller);
+                    var_dump ($method);
+                    
+                    // call_user_func_array(array(new $controller, $method), $params);
                     
                 endif;
                 
             endif;
+           
+            // call_user_func_array (array(new $controller, $method), $params) ; 
                        
-        endif;
-        
-        /*       
-        $controller = 'HomeController';
-        $method = 'index';
-        $params = [];
-        
-        if (isset($_REQUEST['url'])) :              
-            $url = explode("/", $_REQUEST['url']);
-            if (isset($url[0])) {  
-                $controller = ucfirst($url[0]).'Controller';
-                array_shift($url); 
-                if (isset($url[0])) {                    
-                    $method = $url[0];
-                    array_shift($url);    
-                    $params = $url;
-                }
-                if (!class_exists($controller)) {  
-                    $controller = "NotFoundController";
-                    $method = "pageNotFound";                    
-                }
-                call_user_func_array(array(new $controller, $method), $params);  
-                return true;  
-            }                            
-        endif;
-        
-        call_user_func_array (array(new $controller, $method), $params) ; 
-        * 
-        */   
-       
+        endif;     
       
    }
-    
     
 }
 
