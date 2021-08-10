@@ -6,11 +6,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <title>DashBoard - Home</title>
+        <title> DashBoard - Home </title>
         
-        <link href="./app/views/templates/dist/css/bootstrap.css" rel="stylesheet">
-        <link href="./app/views/templates/dist/css/dashboard.css" rel="stylesheet">
-
+        <link href="<?= URL ?>App/Views/templates/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="<?= URL ?>App/Views/templates/dist/css/dashboard.css" rel="stylesheet">
+        
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
@@ -50,13 +50,13 @@
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">
+                                <a class="nav-link <?= ($_SESSION['url'] == "home" ? "active" : "") ?>" aria-current="page" href="<?= URL ?>">
                                     <span data-feather="home"></span>
                                     Home
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link <?= ($_SESSION['url'] == "caduser" ? "active" : "") ?>" href="<?= URL ?>cadastroUsuarioDashBoard/form">
                                     <span data-feather="file"></span>
                                     Novo Cadastro
                                 </a>
@@ -64,7 +64,7 @@
                         </ul>
 
                         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                            <span>Relatórios</span>
+                            <span>CONF. SISTEMA</span>
                             <a class="link-secondary" href="#" aria-label="Add a new report">
                                 <span data-feather="plus-circle"></span>
                             </a>
@@ -72,9 +72,9 @@
                         
                         <ul class="nav flex-column mb-2">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link <?= ($_SESSION['url'] == "bancodados" ? "active" : "") ?>" href="<?= URL ?>configuracaoSistema/bancodados">
                                     <span data-feather="file-text"></span>
-                                    Cadatros
+                                    Banco Dados
                                 </a>
                             </li>
                         </ul>
@@ -82,15 +82,5 @@
                 </nav>
 
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    {{backendPHP}}
-                </main>
-                
-            </div>
-        </div>
-
-        <script src="./app/views/templates/dist/js/bootstrap.js"></script>
-        <script src="./app/views/templates/dist/js/dashboard.js"></script>
-    
-    </body>
-</html>
+                   
 
