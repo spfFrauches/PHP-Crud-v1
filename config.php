@@ -8,5 +8,5 @@ define ('URL', 'http://localhost/desenvolvimentos/php-crud-v1/');
 
 define ('CHARSET', 'utf8');
 define ('USER', 'root');
-define ('PASSWORD', 'asdfg');
+define ('PASSWORD', '102030');
 

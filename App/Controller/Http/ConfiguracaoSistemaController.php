@@ -2,22 +2,28 @@
 
 namespace App\Controller\Http;
 use App\Controller\LoadViewsController;
-use App\Models\Connection;
+use App\Models\ConexaoBancoDados;
 
 class ConfiguracaoSistemaController
 {
   
     public function bancoDados()
     {
-        
-        $mySQL = (new Connection)->getMySQL();
-               
         $_SESSION['url'] = 'bancodados';
+        
+        $mySQL = new ConexaoBancoDados;
+        $mysql = $mySQL->getMySQL(); 
+        
+        if ($mySQL->conn == null):           
+            $noConn = true;
+        endif;
+        
+        
         (new LoadViewsController)->header();
         
-        var_dump($mySQL->msg);
-        
         require './App/Views/confSistema/indexBancoDados.php';
+        var_dump($mySQL->conn);
+               
         (new LoadViewsController)->footer();
         
     }
