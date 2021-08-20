@@ -4,10 +4,10 @@ namespace App\Controller\Http;
 
 use App\Controller\LoadViewsController;
 
-class CadastroUsuarioDashBoardController
+class CadastrosController
 {
     
-    public function form()
+    public function usuarios()
     {
         $_SESSION['url'] = "caduser";
         (new LoadViewsController)->header();

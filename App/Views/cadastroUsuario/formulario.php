@@ -74,6 +74,8 @@
     
 </div>
 
+<script src="<?= URL ?>/App/Views/cadastroUsuario/usuarioFormulario.js"></script>
+
 
 
 
