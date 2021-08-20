@@ -11,6 +11,8 @@
         <link href="<?= URL ?>App/Views/templates/dist/css/bootstrap.css" rel="stylesheet">
         <link href="<?= URL ?>App/Views/templates/dist/css/dashboard.css" rel="stylesheet">
         
+        <script src="<?= URL ?>/App/Views/templates/dist/js/jquery-3.6.0.min.js"></script>
+        
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;

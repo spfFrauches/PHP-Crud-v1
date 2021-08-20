@@ -90,8 +90,9 @@
             </div>
         </div>
 
-        <script src="./app/views/templates/dist/js/bootstrap.js"></script>
-        <script src="./app/views/templates/dist/js/dashboard.js"></script>
+        
+        <script src="./App/Views/templates/dist/js/bootstrap.js"></script>
+        <script src="./App/Views/templates/dist/js/dashboard.js"></script>
     
     </body>
 </html>

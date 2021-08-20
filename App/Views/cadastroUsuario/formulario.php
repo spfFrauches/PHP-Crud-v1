@@ -20,7 +20,7 @@
     
     <div class="col-lg-4 mb-3">
         <label>Cód</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" readonly="">
+        <input type="text" class="form-control"  aria-describedby="emailHelp" readonly="">
         <div id="emailHelp" class="form-text">Cód do usuário</div>
     </div>
       
@@ -30,12 +30,12 @@
 
     <div class="col-lg-6 mb-3">
         <label>Nome Completo</label>
-        <input type="text" class="form-control" id="exampleInputPassword1">
+        <input type="text" class="form-control" >
         <div id="emailHelp" class="form-text">Nome completo do usuário</div>
     </div>
     <div class="col-lg-6 mb-3">
         <label>E-mail</label>
-        <input type="email" class="form-control" id="exampleInputPassword1">
+        <input type="email" class="form-control">
         <div id="emailHelp" class="form-text">E-mail valido para o usuário, servirá como login</div>
     </div>
     
