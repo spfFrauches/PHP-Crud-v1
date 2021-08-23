@@ -13,7 +13,7 @@ use App\Controller\Http\HomeDashBoardController;
 use App\Controller\Http\NotFoundController;
 use App\Controller\Http\CadastroUsuarioDashBoardController;
 use App\Controller\Http\ConfiguracaoSistemaController;
-use App\Controller\CoreBasicRouterController;
+use App\Classes\CoreBasicRouterController;
 
 $toskRouter = new CoreBasicRouterController();
 $toskRouter->start($_REQUEST);

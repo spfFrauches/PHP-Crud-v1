@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller\Http;
-use App\Controller\LoadViewsController;
+use App\Classes\LoadViewsController;
 
 class HomeDashBoardController
 {
