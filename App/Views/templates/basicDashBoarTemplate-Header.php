@@ -58,7 +58,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link <?= ($_SESSION['url'] == "caduser" ? "active" : "") ?>" href="<?= URL ?>cadastros/usuarios">
+                                <a class="nav-link <?= ($_SESSION['url'] == "caduser" ? "active" : "") ?>" href="<?= URL ?>adminDashBoard/usuarios">
                                     <span data-feather="file"></span>
                                     Novo Usuário
                                 </a>

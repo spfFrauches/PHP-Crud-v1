@@ -1,23 +1,27 @@
 <?php
 
-namespace App\Classes;
+namespace App\Controller;
 
 class CoreBasicRouterController
 { 
     
-    public function start($urlGet) {   
+    public function start($urlGet) 
+    {
         
-        $classe = "HomeDashBoardController";
-        $method = "index";
+        //var_dump($urlGet);
+        //exit();
+        
+        $classe = "AdminDashBoardController";
+        $method = "home";
         $params = [];        
         $controller = "\\App\\Controller\\Http\\".$classe;
-  
+          
         if (isset($urlGet['url'])) :
-            
+                        
             $url = explode("/", $_REQUEST['url']);
             
             if (isset($url[0])):
-                
+                               
                 /* Pegando o primeiro parametro da url para o controller */
                 $classe = ucfirst($url[0]).'Controller';
                 $controller = "\\App\\Controller\\Http\\".$classe;
@@ -39,10 +43,10 @@ class CoreBasicRouterController
                     array_shift($url);
                     /* Os demais parametros da URL vão como parametro para os métodos */
                     $params = $url;                   
-                    //call_user_func_array(array(new $controller, $method), $params);
                 endif;
                 
-            endif;                      
+            endif; 
+            
         endif;
         
         /*
@@ -54,7 +58,7 @@ class CoreBasicRouterController
 
         call_user_func_array (array (new $controller, $method), $params) ; 
       
-   }
+    }
     
 }
 

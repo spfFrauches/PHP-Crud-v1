@@ -2,7 +2,7 @@
 
 namespace App\Classes;
 
-class LoadViewsController
+class LoadViews
 {
     
     public function header()

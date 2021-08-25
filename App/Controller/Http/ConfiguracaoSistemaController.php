@@ -1,15 +1,13 @@
 <?php
 
 namespace App\Controller\Http;
-use App\Classes\LoadViewsController;
+use App\Classes\LoadViews;
 use App\Models\ConexaoBancoDados;
 
 class ConfiguracaoSistemaController
 {
-  
     public function bancoDados()
-    {
-        
+    {    
         $_SESSION['url'] = 'bancodados';
         
         $mySQL = new ConexaoBancoDados;
@@ -24,17 +22,9 @@ class ConfiguracaoSistemaController
             $detalhes = $mySQL->ErrorMsg;
         endif;
         
-        
-        (new LoadViewsController)->header();
-        
-        /* var_dump($mySQL); */
-        
+        (new LoadViews)->header();        
         require './App/Views/confSistema/indexBancoDados.php';
-        
-               
-        (new LoadViewsController)->footer();
-        
+        (new LoadViews)->footer();       
     }
-    
 }
 
