@@ -10,6 +10,7 @@ class UsuariosController
     public static function start($param)
     {
         $_SESSION['url'] = "caduser";
+        
         if ($param == 'formulario'):
             self::formularioCadastro();
             exit();
@@ -28,14 +29,12 @@ class UsuariosController
         (new LoadViews)->footer();  
     }
     
-    
-    
+       
     public static function create()
     {
       
         echo "Ola Mundo. Create";
-        $postsForm = self::validarDadosFormulario();
-        
+        $postsForm = self::validarDadosFormulario();    
         var_dump($postsForm);
                
     }

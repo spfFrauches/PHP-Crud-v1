@@ -10,6 +10,7 @@
         
         <link href="<?= URL ?>App/Views/templates/dist/css/bootstrap.css" rel="stylesheet">
         <link href="<?= URL ?>App/Views/templates/dist/css/dashboard.css" rel="stylesheet">
+        <link href="<?= URL ?>App/Views/templates/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
         
         <script src="<?= URL ?>/App/Views/templates/dist/js/jquery-3.6.0.min.js"></script>
         
@@ -53,30 +54,24 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link <?= ($_SESSION['url'] == "home" ? "active" : "") ?>" aria-current="page" href="<?= URL ?>">
-                                    <span data-feather="home"></span>
+                                    <i class="bi bi-house-door"></i>
                                     Home
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link <?= ($_SESSION['url'] == "caduser" ? "active" : "") ?>" href="<?= URL ?>adminDashBoard/usuarios">
-                                    <span data-feather="file"></span>
+                                    <i class="bi bi-person"></i>
                                     Novo Usuário
                                 </a>
                             </li>                           
                         </ul>
-
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                            <span>CONF. SISTEMA</span>
-                            <a class="link-secondary" href="#" aria-label="Add a new report">
-                                <span data-feather="plus-circle"></span>
-                            </a>
-                        </h6>
                         
                         <ul class="nav flex-column mb-2">
                             <li class="nav-item">
-                                <a class="nav-link <?= ($_SESSION['url'] == "bancodados" ? "active" : "") ?>" href="<?= URL ?>configuracaoSistema/bancodados">
-                                    <span data-feather="file-text"></span>
-                                    Banco Dados
+                                <!--<a class="nav-link <?= ($_SESSION['url'] == "bancodados" ? "active" : "") ?>" href="<?= URL ?>configuracaoSistema/bancodados"> -->
+                                <a class="nav-link <?= ($_SESSION['url'] == "confsistema" ? "active" : "") ?>" href="<?= URL ?>adminDashBoard/configuracaoSistema"> 
+                                    <i class="bi bi-gear"></i>
+                                    Configuração do Sistema
                                 </a>
                             </li>
                         </ul>

@@ -1,11 +1,9 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Configurações - Banco de Dados</h1>
+    <h1 class="h2">Configuração do Sistema</h1>
 </div>
 
 <?php 
-
     var_dump($checktabelas);
-
 ?>
 
 <div class="row">  
@@ -33,7 +31,7 @@
                             <h6 class="mb-0">Conexão com Banco de dados</h6>
                             <p class="mb-0 opacity-75">Conectado</p>
                         </div>
-                        <small class="opacity-50 text-nowrap"> <a href="#">Configurado</a></small>
+                        <small class="opacity-50 text-nowrap"> <a href="#"><i class="bi bi-check-circle-fill"></i></a></small>
                     </div>
                 </div>  
             <?php endif; ?>
@@ -51,10 +49,10 @@
                     <div class="d-flex gap-2 w-100 justify-content-between">
                         <div>
                             <h6 class="mb-0">Base de dados</h6>
-                            <p class="mb-0 opacity-75">Não configurado</p>
+                            <p class="mb-0 opacity-75">Não configurado | Inexistente</p>
                             <p class="mb-0 opacity-75 text-danger"></p>
                         </div>
-                        <small class="opacity-50 text-nowrap"> <a href="<?= URL ?>configuracaoSistema/configurarBaseDados">Configurar</a></small>
+                        <small class="opacity-50 text-nowrap"> <a href="<?= URL ?>adminDashBoard/configuracaoSistema/criarBaseDados">Configurar <i class="bi bi-arrow-right-circle"></i></a></small>
                     </div>
                 </div>     
             <?php endif; ?>
@@ -69,7 +67,7 @@
                             <h6 class="mb-0">Base de dados</h6>
                             <p class="mb-0 opacity-75">Configurado</p>
                         </div>
-                        <small class="opacity-50 text-nowrap"> <a href="#">tabelas verificadas</a></small>
+                        <small class="opacity-50 text-nowrap"> <a href="#"><i class="bi bi-check-circle-fill"></i></a></small>
                     </div>
                 </div>  
             <?php endif; ?>

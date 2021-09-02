@@ -4,6 +4,7 @@ namespace App\Controller\Http;
 
 use App\Classes\LoadViews;
 use App\Modulos\DashBoardUsuarios\UsuariosController;
+use App\Modulos\DashBoardConfiguracaoSistema\ConfiguracaoSistemaController;
 
 class AdminDashBoardController
 {
@@ -22,6 +23,14 @@ class AdminDashBoardController
            $param = 'formulario';
        endif;
        UsuariosController::start($param);   
+    }
+    
+    public function configuracaoSistema($param = null)
+    {
+       if ($param == null) :
+           $param = 'index';
+       endif;
+       ConfiguracaoSistemaController::start($param);   
     }
 
     

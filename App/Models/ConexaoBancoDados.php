@@ -1,5 +1,6 @@
 <?php
 
+/* Lembrar de refatorar para SingleTon */ 
 
 namespace App\Models;
 

@@ -1,41 +1,25 @@
 <?php
 
-namespace App\Controller\Http;
-use App\Classes\LoadViews;
+namespace App\Models;
+
 use App\Models\ConexaoBancoDados;
 
-class ConfiguracaoSistemaController
+class CriarBaseDadosModel
 {
-    public function bancoDados()
-    {    
-        $_SESSION['url'] = 'bancodados';
-        
-        $mySQL = new ConexaoBancoDados;
-        $mysql = $mySQL->getMySQL(); 
-        
-        if ($mySQL->conn):           
-            $verifyConn = "yes";
-        endif;
-        
-        if ($mySQL->conn == null):           
-            $verifyConn = "no";
-            $detalhes = $mySQL->ErrorMsg;
-        endif;
-        
-        $checktabelas  = self::checktabelas(); 
-                
-        (new LoadViews)->header();        
-        require './App/Views/confSistema/indexBancoDados.php';
-        (new LoadViews)->footer();       
-    }
     
-    public static function checktabelas()
+    public static function checkTables()
     {
         
         $mySQL = new ConexaoBancoDados;
         $mysql = $mySQL->getMySQL();
-        $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);  
         
+        
+        
+        var_dump($mysql);
+        exit();
+        
+        $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+                
         $sql = "Show tables";
         $sql = $mysql->prepare($sql);
         $sql->execute();
@@ -52,15 +36,21 @@ class ConfiguracaoSistemaController
             $checked = "notable";
         }
         
-        return $checked;     
-              
+        return $checked;       
     }
     
-    public function configurarBaseDados()
+    
+    
+    public static function criarTabelas()
     {
         
         $mySQL = new ConexaoBancoDados;
         $mysql = $mySQL->getMySQL();
+        
+        var_dump($mysql);
+        
+        exit();
+        
         $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); 
         
         $sql = "CREATE TABLE A001User  ( "
@@ -76,16 +66,16 @@ class ConfiguracaoSistemaController
        
         $sql = $mysql->prepare($sql);
         
+        /* Lembrar de montar try catch com exceções de erro */
+        
         if ($sql->execute()):    
-            $url = URL."configuracaoSistema/bancodados";
-            header("Location: $url ");     
+            return "created";
             else:
-            (new LoadViews)->header();        
-            echo "<br/><br/><h1>ERRO</h1><br/><br/>";
-            (new LoadViews)->footer();  
+            return "error";
         endif;
         
         
     }
+    
 }
 
