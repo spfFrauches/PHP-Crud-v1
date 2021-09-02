@@ -12,11 +12,10 @@ class CriarBaseDadosModel
         
         $mySQL = new ConexaoBancoDados;
         $mysql = $mySQL->getMySQL();
+             
         
-        
-        
-        var_dump($mysql);
-        exit();
+        //var_dump($mysql);
+        //exit();
         
         $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
                 
@@ -47,9 +46,9 @@ class CriarBaseDadosModel
         $mySQL = new ConexaoBancoDados;
         $mysql = $mySQL->getMySQL();
         
-        var_dump($mysql);
+        //var_dump($mysql);
         
-        exit();
+        //exit();
         
         $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); 
         
