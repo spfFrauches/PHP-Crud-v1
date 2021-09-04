@@ -1,4 +1,4 @@
-<form action="<?= URL ?>cadastros/usuarios/create" method="POST" id="formUsuarios"></form>
+<form action="#" method="POST" id="formUsuarios"></form>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Cadastro Usuário - DashBoard</h1>
@@ -26,13 +26,13 @@
 <div class="row mt-2">
     <div class="col-lg-6 mb-3">
         <label>Nome Completo</label>
-        <input type="text" class="form-control" name="NomeUser" form="formUsuarios">
-        <div id="emailHelp" class="form-text" >Nome completo do usuário</div>
+        <input type="text" class="form-control NomeUser" name="NomeUser" form="formUsuarios">
+        <div id="NomeUserHelp" class="form-text" >Nome completo do usuário</div>
     </div>
     <div class="col-lg-6 mb-3">
         <label>E-mail</label>
-        <input type="email" class="form-control" name="EmailUser" form="formUsuarios">
-        <div id="emailHelp" class="form-text"  >E-mail valido para o usuário, servirá como login</div>
+        <input type="email" class="form-control EmailUser" name="EmailUser" form="formUsuarios">
+        <div id="emailHelp" class="form-text"  >E-mail válido para o usuário, servirá como login</div>
     </div>   
 </div>
 
@@ -75,5 +75,5 @@
     </div>   
 </div>
 
-<script src="<?= URL ?>/App/Views/cadastroUsuario/usuarioFormulario.js"></script>
+<script src="<?= URL ?>App/Modulos/DashBoardUsuarios/UsuariosFormulario.js"></script>
 

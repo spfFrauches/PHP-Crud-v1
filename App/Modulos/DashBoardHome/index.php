@@ -1,25 +1,13 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Home - DashBoard</h1>
-    <!--
-    <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-        </div>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-        </button>
-    </div>
-    -->  
+    <h1 class="h2">Home - DashBoard</h1> 
 </div>
 
 <div class="row mt-5">   
     <div class="col-lg-4 d-flex align-items-start">
         <div class="icon-square bg-light text-dark flex-shrink-0">
-            <i class="bi bi-check-lg"></i>
+            <i class="bi bi-check-circle-fill"></i>
         </div>
-        <div>
+        <div class="mx-2">
             <h5>Usando MVC</h5>
             <p>
                 Estrutura de MVC simples e tentando ser limpa. Uma arquitetura
@@ -32,9 +20,9 @@
     </div>   
     <div class="col-lg-4 d-flex align-items-start">
         <div class="icon-square bg-light text-dark flex-shrink-0">
-            <i class="bi bi-check-lg"></i>
+            <i class="bi bi-check-circle-fill"></i>
         </div>
-        <div>
+        <div class="mx-2">
             <h5>Rotas</h5>
             <p>
                 Usando um mecanismo
@@ -48,13 +36,13 @@
     </div>   
     <div class="col-lg-4 d-flex align-items-start">
         <div class="icon-square bg-light text-dark flex-shrink-0">
-            <i class="bi bi-check-lg"></i>
+            <i class="bi bi-check-circle-fill"></i>
         </div>
-        <div>
+        <div class="mx-2">
             <h5>Criador Tabelas</h5>
             <p>
                 Mecanismo de checagem de criação das próprias tabelas para uso da aplicação,
-                usando configurador do sistema.          
+                Uma espécie de instalador (ainda que precário) sistema.          
             </p>
             <a href="#" class="btn btn-primary">
                 detalhes
@@ -66,9 +54,9 @@
 <div class="row mt-5">   
     <div class="col-lg-4 d-flex align-items-start">
         <div class="icon-square bg-light text-dark flex-shrink-0">
-            <i class="bi bi-check-lg"></i>
+            <i class="bi bi-check-circle-fill"></i>
         </div>
-        <div>
+        <div class="mx-2">
             <h5>CRUD</h5>
             <p>
                 Crud básico para manipulação do banco de dados MYSQL. Usando JavaScript / jQuery / Ajax
