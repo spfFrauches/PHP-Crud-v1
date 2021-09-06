@@ -19,7 +19,7 @@
     <div class="col-lg-4 mb-3">
         <label>Cód</label>
         <input type="text" class="form-control"  aria-describedby="emailHelp" readonly>
-        <div id="emailHelp" class="form-text">Cód do usuário</div>
+        <div id="CodHelp" class="form-text">Cód do usuário</div>
     </div>     
 </div>
 
@@ -32,39 +32,41 @@
     <div class="col-lg-6 mb-3">
         <label>E-mail</label>
         <input type="email" class="form-control EmailUser" name="EmailUser" form="formUsuarios">
-        <div id="emailHelp" class="form-text"  >E-mail válido para o usuário, servirá como login</div>
+        <div id="EmailHelp" class="form-text"  >E-mail válido para o usuário, servirá como login</div>
     </div>   
 </div>
 
 <div class="row mt-2">
     <div class="col-lg-6 mb-3">
         <label>Nivel de permissão</label>
-        <select class="form-select" name="NivelPermUser" form="formUsuarios" >
+        <select class="form-select NivelPermUser" name="NivelPermUser" form="formUsuarios" >
             <option value="">Selecione</option>
             <option value="0">Administrador</option>
             <option value="1">Visitante</option>
         </select>
-        <div id="emailHelp" class="form-text">Nível de permissões de acesso ao sistema</div>
+        <div id="PermisaoHelp" class="form-text">Nível de permissões de acesso ao sistema</div>
     </div>
     <div class="col-lg-6 mb-3">
         <label>Status</label>
-        <select class="form-select" name="StatusUser" form="formUsuarios" >
+        <select class="form-select StatusUser" name="StatusUser" form="formUsuarios" >
             <option value="">Selecione</option>
             <option value="0">Ativo</option>
             <option value="1">Inativo</option>
         </select>
-        <div id="emailHelp" class="form-text">E-mail valido para o usuário, servirá como login</div>
+        <div id="StatusHelp" class="form-text">Status inicial de acesso ao sistema</div>
     </div>   
 </div>
 
 <div class="row mt-2">
     <div class="col-lg-6 mb-3">
         <label>Senha</label>
-        <input type="password" class="form-control" name="passwordUser" form="formUsuarios" >
+        <input type="password" class="form-control passwordUser" name="passwordUser" form="formUsuarios" >
+        <div id="PasswdHelp" class="form-text">Senha de acesso ao sistema</div>
     </div>
     <div class="col-lg-6 mb-3">
         <label>Confirmar Senha</label>
-        <input type="password" class="form-control" name="passwordUserConfirm" form="formUsuarios" >
+        <input type="password" class="form-control passwordUserConfirm" name="passwordUserConfirm" form="formUsuarios" >
+        <div id="PasswdConfirmaHelp" class="form-text">Confirmação da senha de acesso</div>
     </div>   
 </div>
 
