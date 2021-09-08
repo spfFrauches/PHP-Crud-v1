@@ -3,6 +3,7 @@
 namespace App\Modulos\DashBoardUsuarios;
 
 use App\Classes\LoadViews;
+use App\Models\UsuarioModels;
 
 class UsuariosController
 {
@@ -15,8 +16,8 @@ class UsuariosController
             self::formularioCadastro();
             exit();
         endif; 
-        if ($param == 'create'):
-            self::create();
+        if ($param == 'store'):
+            self::store();
             exit();
         endif; 
                 
@@ -30,32 +31,47 @@ class UsuariosController
     }
     
        
-    public static function create()
+    public static function store()
     {
+        
       
-        echo "Ola Mundo. Create";
         $postsForm = self::validarDadosFormulario();    
-        var_dump($postsForm);
-               
+        echo UsuarioModels::insert($postsForm);
+        
+                      
     }
     
     public static function validarDadosFormulario()
-    {      
+    {     
+        
+        $_POST = array_map('trim', $_POST);     
      
-        if (!isset($_POST['NomeUser']) || $_POST['NomeUser'] == '' ):
+        if (empty($_POST['NomeUser'])):
             exit("Nome de usuário não informado");
         endif;
         
-        if (!isset($_POST['EmailUser']) || $_POST['EmailUser'] == '' ):
+        if (empty($_POST['EmailUser'])):
             exit("Email de usuário não informado");
         endif;
         
-        if ( !isset($_POST['NivelPermUser']) || $_POST['NivelPermUser'] == ''):
+        if ( $_POST['NivelPermUser'] == ''):
             exit("Nível de permissão de usuário não informado");
         endif;
       
-        if ( !isset($_POST['StatusUser']) || $_POST['StatusUser'] == ''):
+        if ( $_POST['StatusUser'] == '' ):
             exit("Status de permissão de usuário não informado");
+        endif;
+        
+        if (empty($_POST['PasswordUser'])):
+            exit("Password/Senha de usuário não informado");
+        endif;
+        
+        if (empty($_POST['PasswordUserConfirm'])):
+            exit("Confirmação Password/Senha de usuário não informado");
+        endif;
+        
+        if (empty($_POST['ObsComplementarUser'])):
+            exit("Testando validações backEnd - ObsComplementar, se essa funciona as outras também");
         endif;
         
         $retorno = [];
@@ -64,8 +80,8 @@ class UsuariosController
         $retorno['EmailUser'] = filter_var ($_POST['EmailUser'], FILTER_SANITIZE_EMAIL);
         $retorno['NivelPermUser'] = filter_var ($_POST['NivelPermUser'], FILTER_SANITIZE_NUMBER_INT);
         $retorno['StatusUser'] = filter_var ($_POST['StatusUser'], FILTER_SANITIZE_NUMBER_INT);
-        $retorno['passwordUser'] = $_POST['passwordUser'];
-        $retorno['passwordUserConfirm'] = $_POST['passwordUserConfirm'];
+        $retorno['PasswordUser'] = $_POST['PasswordUser'];
+        $retorno['PasswordUserConfirm'] = $_POST['PasswordUserConfirm'];
         $retorno['ObsComplementarUser'] = filter_var ($_POST['ObsComplementarUser'], FILTER_SANITIZE_STRING);
         
         return $retorno;

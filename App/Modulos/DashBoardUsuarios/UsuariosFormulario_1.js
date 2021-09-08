@@ -3,9 +3,6 @@
 /* ------------------------------------------  */
 
 $(".loadingOnSubmit").hide();
-$(".msgSucess").hide();
-$(".msgError").hide();
-
    
 $(".NomeUser").focusout(function(){
     validarFormNomeUser();
@@ -38,7 +35,17 @@ $(".PasswordUserConfirm").focusout(function(){
 $("#formUsuarios").submit(function() {
     
     iniciarLoad(); 
-  
+    
+    setTimeout( function() {
+        sendAjax(); 
+    }, 1500);
+    
+    return false;
+    
+});
+
+function sendAjax() {
+    
     validarFormNomeUser();
     validarFormEmailUser();
     validarFormNivelPermissaoUser();
@@ -62,9 +69,7 @@ $("#formUsuarios").submit(function() {
                       
            
         } else {
-            
-            loadErroMsg();
-            
+           
         } 
   
         
@@ -73,12 +78,8 @@ $("#formUsuarios").submit(function() {
     }).always(function() {
         /* alert( "Completo...ajax rodou" ); */
     });
-
-    
-    return false;
-    
-});
-
+       
+}
 
 function iniciarLoad(){
    $(".formularioCadastro").hide();
@@ -87,13 +88,6 @@ function iniciarLoad(){
 function pararLoad() {
    $(".formularioCadastro").show();
    $(".loadingOnSubmit").hide();
-}
-
-function loadErroMsg() {
-    $(".formularioCadastro").hide();
-    $(".loadingOnSubmit").hide();
-    $(".msgSucess").hide();
-    $(".msgError").show();
 }
 
 /* ---------------------------------------------  */
