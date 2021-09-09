@@ -4,12 +4,14 @@
     <h1 class="h2">Cadastro Usuário - DashBoard</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-2">
+            
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Como funciona</button>
             <!--
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
             -->
+            
         </div>
-        <button type="submit" class="btn btn-sm btn-outline-secondary" form="formUsuarios">
+        <button type="submit" class="btn btn-sm btn-outline-secondary btnSalvarFormularioUsuarios" form="formUsuarios">
             Salvar
         </button>
     </div>
@@ -85,6 +87,48 @@
             <textarea class="form-control" name="ObsComplementarUser" rows="3" form="formUsuarios"></textarea>
         </div>   
     </div>    
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Como funciona</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 18px">Uma sinapse do código por detras desta tela/página</p>
+                <ul>
+                    <li>
+                        Estamos usando muito jQuery nesta página
+                    </li>
+                    <li>
+                        Ao passar pelos campos cada um deles é validado
+                    </li>
+                    <li>
+                        Na passagem é validado apenas nível front-end
+                    </li>
+                    <li>
+                        Ao clicar em salvar nova validação front-end é acionada
+                    </li>
+                    <li>
+                        Tudo validado, é enviado o formulário via AJAX no jQuery
+                    </li>
+                    <li>
+                        Em seguida validação de back-end acionado o arquivo .php
+                    </li>
+                    <li>
+                        O formulário é processado e salvo em banco de dados.
+                    </li>
+                    
+                </ul>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+    </div>
 </div>
 
 <script src="<?= URL ?>App/Modulos/DashBoardUsuarios/UsuariosFormulario.js"></script>

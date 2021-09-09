@@ -5,8 +5,7 @@
 $(".loadingOnSubmit").hide();
 $(".msgSucess").hide();
 $(".msgError").hide();
-
-   
+  
 $(".NomeUser").focusout(function(){
     validarFormNomeUser();
 });
@@ -31,14 +30,10 @@ $(".PasswordUserConfirm").focusout(function(){
     validarFormConfirmarPasswdUser();
 });
 
-/* ------------------------------------------  */
-/* Trabalhando no Submit do formulário         */
-/* ------------------------------------------  */
-
-$("#formUsuarios").submit(function() {
+$(".btnSalvarFormularioUsuarios").click(function() {
     
-    iniciarLoad(); 
-  
+    console.log("Clicando em botão salvar...");
+    
     validarFormNomeUser();
     validarFormEmailUser();
     validarFormNivelPermissaoUser();
@@ -46,7 +41,19 @@ $("#formUsuarios").submit(function() {
     validarFormPasswdUser();
     validarFormConfirmarPasswdUser();
     compararSenhas();
-     
+    
+});
+
+/* ------------------------------------------  */
+/* Trabalhando no Submit do formulário         */
+/* ------------------------------------------  */
+
+$("#formUsuarios").submit(function() {
+    
+    console.log("Enviando o formulário...");
+    
+    iniciarLoad(); 
+       
     $.ajax({
         
         method: "POST",
@@ -63,7 +70,10 @@ $("#formUsuarios").submit(function() {
            
         } else {
             
-            loadErroMsg();
+            setTimeout(function() {
+                loadErroMsg(); 
+            }, 1000); 
+            $(".btnSalvarFormularioUsuarios").attr("disabled", true);
             
         } 
   
@@ -105,8 +115,11 @@ function validarFormNomeUser() {
     if (nomeuser.trim() == '') {
         pararLoad();
         erroFormNomeUser();
+        $(".btnSalvarFormularioUsuarios").attr("disabled", true);
+        console.log("Nome de usuário em branco - validação Front End");
     } else {
         normalFormNomeUser();
+        $('.btnSalvarFormularioUsuarios').removeAttr("disabled");
     }
 }
 function erroFormNomeUser() {
@@ -125,8 +138,11 @@ function validarFormEmailUser() {
     if (emailuser.trim() == '') {
         pararLoad();
         erroFormEmailUser();
+        $(".btnSalvarFormularioUsuarios").attr("disabled", true);
+        console.log("E-mail em branco - validação Front End");
     } else {
         normalFormEmailUser();
+        $('.btnSalvarFormularioUsuarios').removeAttr("disabled");
     }
        
 }
@@ -146,8 +162,11 @@ function validarFormNivelPermissaoUser(){
     if (nivelPermUser.trim() == '') {
         pararLoad();
         erroFormNivelPermUser();
+        $(".btnSalvarFormularioUsuarios").attr("disabled", true);
+        console.log("Nivel permissão não informado - validação Front End");
     } else {
         normalFormNivelPermUser();
+        $('.btnSalvarFormularioUsuarios').removeAttr("disabled");
     } 
 }
 function erroFormNivelPermUser(){
@@ -166,8 +185,11 @@ function validarFormStatusUser() {
     if (statusUser.trim() == '') {
         pararLoad();
         erroFormStatusUser();
+        $(".btnSalvarFormularioUsuarios").attr("disabled", true);
+        console.log("Status do usuário não informado - validação Front End");
     } else {
         normalFormStatusUser();
+        $('.btnSalvarFormularioUsuarios').removeAttr("disabled");
     } 
 }
 function erroFormStatusUser() {
@@ -186,8 +208,11 @@ function validarFormPasswdUser(){
     if (passwordUser.trim() == '') {
         pararLoad();
         erroFormPasswdUser();
+        $(".btnSalvarFormularioUsuarios").attr("disabled", true);
+        console.log("Senha não informado - validação Front End");
     } else {
         normalFormPasswdUser() ;
+        $('.btnSalvarFormularioUsuarios').removeAttr("disabled");
     }
 }
 function erroFormPasswdUser() {
@@ -205,7 +230,9 @@ function validarFormConfirmarPasswdUser() {
     var passwordUserConfirm = $(".PasswordUserConfirm").val();  
     if (passwordUserConfirm.trim() == '') {
         pararLoad();
-        erroFormConfirPasswdUser();     
+        erroFormConfirPasswdUser(); 
+        $(".btnSalvarFormularioUsuarios").attr("disabled", true);
+        console.log("Confirmação de senha não informado - validação Front End");
     } else {
         normalFormConfirPasswdUser();
         compararSenhas();
@@ -231,7 +258,7 @@ function compararSenhas(){
     var passwordUser = $(".PasswordUser").val();
     var passwordUserConfirm = $(".PasswordUserConfirm").val(); 
     
-    if (passwordUser != passwordUserConfirm) {
+    if ( (passwordUser != passwordUserConfirm) || passwordUserConfirm == '' ) {
         pararLoad();
         
         $(".PasswordUserConfirm").css("border", "solid 1px red");
@@ -240,10 +267,19 @@ function compararSenhas(){
         
     } else {
         normalFormConfirPasswdUser();
+        $('.btnSalvarFormularioUsuarios').removeAttr("disabled");
     }
-    
-    
+     
 }
 
+$(".btnVoltarErroCadastroUsuarios").click(function() {    
+    $(".msgError").hide();
+    $(".loadingOnSubmit").show(); 
+    setTimeout(function() {
+        $(".loadingOnSubmit").hide(); 
+        $(".formularioCadastro").show(); 
+        $('.btnSalvarFormularioUsuarios').removeAttr("disabled");
+    }, 1000);   
+});
 
 
