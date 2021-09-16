@@ -3,30 +3,23 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Cadastro Usuário - DashBoard</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-2">
+        <div class="btn-group me-5">
             
-            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Como funciona</button>
-            <!--
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-            -->
-            
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Detalhes técnicos <i class="bi bi-info-circle"></i> </button>
+            &nbsp;
+            <a href="<?=  URL ?>adminDashBoard/usuarios/listar" class="btn btn-sm btn-outline-secondary"> Listar Usuários <i class="bi bi-list"></i> </a>
         </div>
-        <button type="submit" class="btn btn-sm btn-outline-secondary btnSalvarFormularioUsuarios" form="formUsuarios">
+        <button type="submit" class="btn btn-sm btn-outline-secondary btnSalvarFormularioUsuarios" form="formUsuarios">         
             Salvar
+            <i class="bi bi-plus-circle"></i>
         </button>
     </div>
 </div>
 
-
-
- 
 <?php 
-    
     require "./App/Modulos/DashBoardUsuarios/UsuariosViewLoads.php";
-    require "./App/Modulos/DashBoardUsuarios/UsuariosViewMsg.php";
-    
+    require "./App/Modulos/DashBoardUsuarios/UsuariosViewMsg.php";    
 ?>
-
 
 <div class="formularioCadastro">    
     <div class="row">   
@@ -94,32 +87,21 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Como funciona</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Notas do programador</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p style="font-size: 18px">Uma sinapse do código por detras desta tela/página</p>
                 <ul>
                     <li>
-                        Estamos usando muito jQuery nesta página
+                        Usando jQuery nesta página para validações Front-End
                     </li>
                     <li>
-                        Ao passar pelos campos cada um deles é validado
+                        Submit do formulario com Ajax/jQuery
                     </li>
-                    <li>
-                        Na passagem é validado apenas nível front-end
-                    </li>
-                    <li>
-                        Ao clicar em salvar nova validação front-end é acionada
-                    </li>
-                    <li>
-                        Tudo validado, é enviado o formulário via AJAX no jQuery
-                    </li>
-                    <li>
-                        Em seguida validação de back-end acionado o arquivo .php
-                    </li>
-                    <li>
-                        O formulário é processado e salvo em banco de dados.
+                    <li style="color:red">
+                        Antes de gravar verificar no banco se existe e-mail ou ID e mostrar caso repetido
+                        (Ainda não feito)
                     </li>
                     
                 </ul>

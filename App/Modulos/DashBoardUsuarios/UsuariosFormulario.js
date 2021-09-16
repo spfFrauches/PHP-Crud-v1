@@ -2,10 +2,8 @@
 /* Validando campos ao passar por eles...      */
 /* ------------------------------------------  */
 
-$(".loadingOnSubmit").hide();
-$(".msgSucess").hide();
-$(".msgError").hide();
-  
+hidenDivs()
+
 $(".NomeUser").focusout(function(){
     validarFormNomeUser();
 });
@@ -50,10 +48,9 @@ $(".btnSalvarFormularioUsuarios").click(function() {
 
 $("#formUsuarios").submit(function() {
     
-    console.log("Enviando o formulário...");
-    
+    console.log("Enviando o formulário...");   
     iniciarLoad(); 
-       
+    
     $.ajax({
         
         method: "POST",
@@ -63,21 +60,25 @@ $("#formUsuarios").submit(function() {
     }).done(function( result ) { 
         
         console.log(result);
-        
-        
+                
         if (result == "success") {
+            
+            setTimeout(function() {
+                loadSuccessMsg(); 
+            }, 1000);
                       
            
         } else {
             
             setTimeout(function() {
                 loadErroMsg(); 
-            }, 1000); 
+            }, 1000);
+            $(".detalheErroTexto").text(result);
+            $(".detalheErro").show();
             $(".btnSalvarFormularioUsuarios").attr("disabled", true);
             
         } 
-  
-        
+          
     }).fail(function() {
         alert( "Ops! Desculpe mas ocorreu um erro ao enviar dados para página" );
     }).always(function() {
@@ -88,6 +89,35 @@ $("#formUsuarios").submit(function() {
     return false;
     
 });
+
+
+
+
+
+
+/* ---------------------------------------------  */
+/* FUNÇÕES GERAIS PARA USO NO ARQUIVO             */
+/* ---------------------------------------------  */
+
+
+
+/* ---------------------------------------------  */
+/* FUNÇÕES PARA OCULTAR DIVS DE INICIO            */
+/* ---------------------------------------------  */
+
+
+
+function hidenDivs() {
+    $(".loadingOnSubmit").hide();
+    $(".msgSucess").hide();
+    $(".msgError").hide();
+    $(".detalheErro").hide();
+}
+
+
+/* ---------------------------------------------  */
+/* FUNÇÕES PARA EFEITOS DE LOAD*/
+/* ---------------------------------------------  */
 
 
 function iniciarLoad(){
@@ -104,6 +134,13 @@ function loadErroMsg() {
     $(".loadingOnSubmit").hide();
     $(".msgSucess").hide();
     $(".msgError").show();
+}
+
+function loadSuccessMsg() {
+    $(".formularioCadastro").hide();
+    $(".loadingOnSubmit").hide();
+    $(".msgSucess").show();
+    $(".msgError").hide();
 }
 
 /* ---------------------------------------------  */
@@ -143,8 +180,7 @@ function validarFormEmailUser() {
     } else {
         normalFormEmailUser();
         $('.btnSalvarFormularioUsuarios').removeAttr("disabled");
-    }
-       
+    }       
 }
 function erroFormEmailUser(){
     $(".EmailUser").css("border", "solid 1px red");
@@ -243,7 +279,7 @@ function erroFormConfirPasswdUser(){
     $("#PasswdConfirmaHelp").text("Campo obrigatório, informe uma senha de confirmação");
     $("#PasswdConfirmaHelp").css("color", "red"); 
 }
-function normalFormConfirPasswdUser(){
+function normalFormConfirPasswdUser() {
     $(".PasswordUserConfirm").css("border", "");
     $("#PasswdConfirmaHelp").text("Confirmação da senha de acesso");
     $("#PasswdConfirmaHelp").css("color", "");  
@@ -253,7 +289,7 @@ function normalFormConfirPasswdUser(){
 /* fUNÇÃO PARA COMPARAÇÕES DE SENHAS */
 /* ---------------------------------------------  */
 
-function compararSenhas(){
+function compararSenhas() {
     
     var passwordUser = $(".PasswordUser").val();
     var passwordUserConfirm = $(".PasswordUserConfirm").val(); 

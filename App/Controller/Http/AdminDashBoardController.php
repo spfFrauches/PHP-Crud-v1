@@ -19,18 +19,19 @@ class AdminDashBoardController
 
     public function usuarios($param = null)
     {
-       if ($param == null) :
+        if ($param == null) :
            $param = 'formulario';
-       endif;
-       UsuariosController::start($param);   
+        endif;
+        /* Direcionando para o modulo... */
+        UsuariosController::start($param);   
     }
     
     public function configuracaoSistema($param = null)
     {
-       if ($param == null) :
+        if ($param == null) :
            $param = 'index';
-       endif;
-       ConfiguracaoSistemaController::start($param);   
+        endif;
+        ConfiguracaoSistemaController::start($param);   
     }
 
     

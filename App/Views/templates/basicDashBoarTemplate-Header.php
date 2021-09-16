@@ -52,7 +52,7 @@
                             <li class="nav-item">
                                 <a class="nav-link <?= ($_SESSION['url'] == "caduser" ? "active" : "") ?>" href="<?= URL ?>adminDashBoard/usuarios">
                                     <i class="bi bi-person"></i>
-                                    Novo Usuário
+                                    Usuários
                                 </a>
                             </li>                           
                         </ul>

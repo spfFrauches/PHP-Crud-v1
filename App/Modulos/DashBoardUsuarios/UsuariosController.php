@@ -19,31 +19,38 @@ class UsuariosController
         if ($param == 'store'):
             self::store();
             exit();
-        endif; 
-                
+        endif;   
+        if ($param == 'listar'):
+            self::listar();
+            exit();
+        endif;        
     }
     
-    public static function formularioCadastro()
+    private static function formularioCadastro()
     {
         (new LoadViews)->header();
         require __DIR__.'/UsuariosViewFormularioCadastro.php';
         (new LoadViews)->footer();  
     }
     
-       
-    public static function store()
-    {
+    private static function listar()
+    {     
+        $usuarios = UsuarioModels::listar();
         
-      
-        $postsForm = self::validarDadosFormulario();    
-        echo UsuarioModels::insert($postsForm);
-        
-                      
+        (new LoadViews)->header();
+        require __DIR__.'/UsuariosViewListar.php';
+        (new LoadViews)->footer();         
     }
     
-    public static function validarDadosFormulario()
-    {     
-        
+       
+    private static function store()
+    {        
+        $postsForm = self::validarDadosFormulario();    
+        echo UsuarioModels::insert($postsForm);                         
+    }
+    
+    private static function validarDadosFormulario()
+    {             
         $_POST = array_map('trim', $_POST);     
      
         if (empty($_POST['NomeUser'])):
