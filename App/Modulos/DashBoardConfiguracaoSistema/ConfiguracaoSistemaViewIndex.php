@@ -2,10 +2,6 @@
     <h1 class="h2">Configuração do Sistema</h1>
 </div>
 
-<?php 
-    var_dump($checktabelas);
-?>
-
 <div class="row">  
     <div class="col-lg-6">     
         <div class="list-group">           

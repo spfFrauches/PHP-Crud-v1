@@ -48,8 +48,7 @@ class ConfiguracaoSistemaController
     
     public static function criarBaseDados()
     {
-        
-       
+              
         $createTables = CriarBaseDadosModel::criarTabelas();
         
         if ($createTables == "created"):
@@ -61,7 +60,6 @@ class ConfiguracaoSistemaController
             (new LoadViews)->footer(); 
         endif;
                    
-        
     }
     
     
