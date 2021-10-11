@@ -55,8 +55,7 @@
             <strong class="d-block text-gray-dark">Rotas</strong>
             Baseado em um estilo core controller, usando um mecanismo
             próprio (mas nada sofisticado) junto com URL amigável. Com base 
-            na URL um controller é chamado instanciando a classe e executando os métodos...
-            
+            na URL um controller é chamado instanciando a classe e executando os métodos...            
         </p>
     </div>
     <div class="d-flex text-muted pt-3">

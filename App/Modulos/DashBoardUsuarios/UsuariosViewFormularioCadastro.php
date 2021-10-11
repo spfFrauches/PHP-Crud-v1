@@ -5,9 +5,9 @@
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-5">
             
-            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Detalhes técnicos <i class="bi bi-info-circle"></i> </button>
-            &nbsp;
-            <a href="<?=  URL ?>adminDashBoard/usuarios/listar" class="btn btn-sm btn-outline-secondary"> Listar Usuários <i class="bi bi-list"></i> </a>
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Detalhes técnicos </button>
+            
+            <a href="<?=  URL ?>adminDashBoard/usuarios/listar" class="btn btn-sm btn-outline-secondary"> Listar Usuários</a>
         </div>
         <button type="submit" class="btn btn-sm btn-outline-secondary btnSalvarFormularioUsuarios" form="formUsuarios">         
             Salvar
@@ -15,6 +15,19 @@
         </button>
     </div>
 </div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Usuários</a></li>
+                 <li class="breadcrumb-item active" aria-current="page">Cadastro de Novo usuário</li>
+            </ol>
+        </nav>     
+    </div>
+</div>
+
 
 <?php 
     require "./App/Modulos/DashBoardUsuarios/UsuariosViewLoads.php";

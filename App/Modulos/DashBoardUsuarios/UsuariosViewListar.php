@@ -3,15 +3,25 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Listar Usuários - DashBoard</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-5">      
-            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Detalhes técnicos <i class="bi bi-info-circle"></i> </button>
-        </div>
         <a href="<?= URL ?>adminDashBoard/usuarios" class="btn btn-sm btn-outline-secondary btnSalvarFormularioUsuarios" form="formUsuarios">         
             Novo usuário
             <i class="bi bi-plus-circle"></i>
         </a>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Usuários</a></li>
+                 <li class="breadcrumb-item active" aria-current="page">Listar todos usuários</li>
+            </ol>
+        </nav>     
+    </div>
+</div>
+
+
 
 <div class="row">   
     <div class="col-lg-12 mb-3 mt-5">
