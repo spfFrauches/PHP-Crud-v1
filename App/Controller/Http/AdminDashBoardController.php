@@ -19,9 +19,18 @@ class AdminDashBoardController
 
     public function usuarios($param = null)
     {
+     
+       /*
+        echo "<pre>";
+        var_dump($param);
+        echo "</pre>";
+        * 
+        */
+            
         if ($param == null) :
-           $param = 'formulario';
+           $param = 'formulario';   
         endif;
+            
         /* Direcionando para o modulo... */
         UsuariosController::start($param);   
     }

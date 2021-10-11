@@ -21,8 +21,6 @@
     </div>
 </div>
 
-
-
 <div class="row">   
     <div class="col-lg-12 mb-3 mt-5">
               
@@ -37,18 +35,29 @@
             </thead>
             
             <tbody>
+                <?php if($usuarios): ?>
                 <?php foreach ($usuarios as $key => $value): ?>
                 <tr>
                     <th scope="row"><?= $value->CodUser ?></th>
                     <td><?= $value->NomeUser ?></td>
                     <td><?= $value->EmailUser ?></td>
                     <td>
-                        <a href="#" class="me-3 modalEditar" data-bs-toggle="modal" data-bs-target="#modalEditar"><i class="bi bi-pencil-square"></i></a>
+                        <a href="#" class="me-3 modalEditar" data-bs-toggle="modal" data-user="<?= $value->CodUser ?>" data-bs-target="#modalEditar"><i class="bi bi-pencil-square"></i></a>
 
-                        <a href="#" class="modalExcluir" data-bs-toggle="modal" data-bs-target="#modalExcluir"><i class="bi bi-trash"></i></a>
+                        <a href="#" class="modalExcluir" data-bs-toggle="modal"  data-user="<?= $value->CodUser ?>" data-bs-target="#modalExcluir"><i class="bi bi-trash"></i></a>
                     </td>
                 </tr>
                 <?php endforeach; ?> 
+                <?php else: ?>
+                <tr>
+                    <th scope="row">Nenhum usuário cadastrado</th>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        
+                    </td>
+                </tr>
+                <?php endif; ?>
             </tbody>   
         </table>
        
@@ -64,12 +73,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body editar">
-              ...
+                
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -83,12 +89,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body excluir">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            </div>                     
         </div>
     </div>
 </div>

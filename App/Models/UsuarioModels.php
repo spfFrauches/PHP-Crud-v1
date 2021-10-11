@@ -14,7 +14,6 @@ class UsuarioModels
         $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         
         extract($dados);
-                
         $table = "A001User";
         
         $sql    = "INSERT INTO $table "
@@ -24,12 +23,10 @@ class UsuarioModels
         
         try {
             
-            $sql = $mysql->prepare($sql);
-            
+            $sql = $mysql->prepare($sql);           
             if ($sql->execute()):
                 return "success";
             endif;
-            
         } catch (\PDOException $e) {
             return "error.: $e";
         }       
@@ -43,8 +40,7 @@ class UsuarioModels
         $mysql = $mySQL->getMySQL();     
         $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         
-        $table = "A001User";
-        
+        $table = "A001User";       
         $sql    = "SELECT * FROM $table";
 
         $sql = $mysql->prepare($sql);
@@ -57,8 +53,7 @@ class UsuarioModels
     {      
         $mySQL = new ConexaoBancoDados;
         $mysql = $mySQL->getMySQL();     
-        $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        
+        $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);       
         $table = "A001User";
         
         $sql    = "SELECT * FROM $table WHERE CodUser = '$cod'";
@@ -67,6 +62,39 @@ class UsuarioModels
         return $sql->fetchAll(\PDO::FETCH_OBJ);      
     }
     
+    public static function updatePorCod($cod)
+    {      
+        $mySQL = new ConexaoBancoDados;
+        $mysql = $mySQL->getMySQL();     
+        $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);       
+        $table = "A001User";
+        
+        echo "<pre>";
+        var_dump($cod);
+        echo "</pre>";
+        exit();
+        
+        /*     
+        $sql    = "UPDATE SET ($values) FROM $table WHERE CodUser = '$cod'";
+        $sql = $mysql->prepare($sql);
+        $sql->execute();
+        return $sql->fetchAll(\PDO::FETCH_OBJ);  
+        */     
+    }
+    
+    
+    public static function deleteUsuarioPorCod($cod) {
+        
+        $mySQL = new ConexaoBancoDados;
+        $mysql = $mySQL->getMySQL();     
+        $mysql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        
+        $table = "A001User";
+        $sql    = "DELETE FROM $table WHERE CodUser = '$cod[0]'";
+        $sql = $mysql->prepare($sql);
+        return $sql->execute();
+    
+    }
     
 }
 

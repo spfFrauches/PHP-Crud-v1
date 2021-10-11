@@ -84,8 +84,7 @@ $("#formUsuarios").submit(function() {
     }).always(function() {
         /* alert( "Completo...ajax rodou" ); */
     });
-
-    
+ 
     return false;
     
 });

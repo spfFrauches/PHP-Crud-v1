@@ -10,20 +10,39 @@ class UsuariosController
     
     public static function start($param)
     {
-        $_SESSION['url'] = "caduser";
-        
-        if ($param == 'formulario'):
+           
+        array_shift($param);  
+       
+        if (empty($param[0]) ):
+            $_SESSION['url'] = "caduser";
             self::formularioCadastro();
             exit();
         endif; 
-        if ($param == 'store'):
+        
+        if ($param[0] == 'formulario'):
+            $_SESSION['url'] = "caduser";
+            self::formularioCadastro();
+            exit();
+        endif; 
+        
+        if ($param[0] == 'formulario'):
+            self::formularioCadastro();
+            exit();
+        endif; 
+        if ($param[0] == 'store'):
             self::store();
             exit();
         endif;   
-        if ($param == 'listar'):
+        if ($param[0] == 'listar'):
+            $_SESSION['url'] = "listaruser" ;
             self::listar();
             exit();
-        endif;        
+        endif; 
+        if ($param[0] == 'delete'):
+            array_shift($param);   
+            self::delete($param);
+            exit();
+        endif; 
     }
     
     private static function formularioCadastro()
@@ -42,47 +61,65 @@ class UsuariosController
         (new LoadViews)->footer();         
     }
     
-       
+          
     private static function store()
-    {        
-        $postsForm = self::validarDadosFormulario();    
+    {     
+        $postsForm = self::helperValidarDadosFormulario();    
         echo UsuarioModels::insert($postsForm);                         
     }
     
-    private static function validarDadosFormulario()
-    {             
+    private static function update()
+    {     
+        $postsForm = self::helperValidarDadosFormulario();    
+        //echo UsuarioModels::insert($postsForm);                         
+    }
+    
+    private static function delete($param)
+    {
+        
+        UsuarioModels::deleteUsuarioPorCod($param);
+        $usuarios = UsuarioModels::listar();
+             
+        (new LoadViews)->header();
+        require __DIR__.'/UsuariosViewListar.php';
+        (new LoadViews)->footer();   
+    }
+    
+    
+    private static function helperValidarDadosFormulario () {
+               
         $_POST = array_map('trim', $_POST);     
-     
+
         if (empty($_POST['NomeUser'])):
             exit("Nome de usuário não informado");
         endif;
-        
+
         if (empty($_POST['EmailUser'])):
             exit("Email de usuário não informado");
         endif;
-        
+
         if ( $_POST['NivelPermUser'] == ''):
             exit("Nível de permissão de usuário não informado");
         endif;
-      
+
         if ( $_POST['StatusUser'] == '' ):
             exit("Status de permissão de usuário não informado");
         endif;
-        
+
         if (empty($_POST['PasswordUser'])):
             exit("Password/Senha de usuário não informado");
         endif;
-        
+
         if (empty($_POST['PasswordUserConfirm'])):
             exit("Confirmação Password/Senha de usuário não informado");
         endif;
-        
+
         if (empty($_POST['ObsComplementarUser'])):
             exit("Testando validações backEnd - ObsComplementar, se essa funciona as outras também");
         endif;
-        
+
         $retorno = [];
-        
+
         $retorno['NomeUser']  = filter_var ($_POST['NomeUser'], FILTER_SANITIZE_STRING);
         $retorno['EmailUser'] = filter_var ($_POST['EmailUser'], FILTER_SANITIZE_EMAIL);
         $retorno['NivelPermUser'] = filter_var ($_POST['NivelPermUser'], FILTER_SANITIZE_NUMBER_INT);
@@ -90,10 +127,13 @@ class UsuariosController
         $retorno['PasswordUser'] = $_POST['PasswordUser'];
         $retorno['PasswordUserConfirm'] = $_POST['PasswordUserConfirm'];
         $retorno['ObsComplementarUser'] = filter_var ($_POST['ObsComplementarUser'], FILTER_SANITIZE_STRING);
-        
+
         return $retorno;
-        
+
     }
+    
+    
+    
     
     
 }

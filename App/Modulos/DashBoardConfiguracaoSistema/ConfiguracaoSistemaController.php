@@ -11,14 +11,18 @@ class ConfiguracaoSistemaController
 
     public static function start($param)
     {
+               
         
-        $_SESSION['url'] = 'confsistema';
-
-        if ($param == 'index'):
+        if ($param[0] == 'configuracaoSistema'):
             self::index();
             exit();
         endif; 
-        if ($param == 'criarBaseDados'):
+
+        if ($param[0] == 'index'):
+            self::index();
+            exit();
+        endif; 
+        if ($param[0] == 'criarBaseDados'):
             self::criarBaseDados();
             exit();
         endif; 

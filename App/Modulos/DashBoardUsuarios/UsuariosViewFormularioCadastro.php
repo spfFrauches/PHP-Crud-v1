@@ -22,7 +22,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Usuários</a></li>
-                 <li class="breadcrumb-item active" aria-current="page">Cadastro de Novo usuário</li>
+                <li class="breadcrumb-item active" aria-current="page">Cadastro de Novo usuário</li>
             </ol>
         </nav>     
     </div>
@@ -35,7 +35,7 @@
 ?>
 
 <div class="formularioCadastro">    
-    <div class="row">   
+    <div class="row mt-5">   
         <div class="col-lg-4 mb-3">
             <label>Cód</label>
             <input type="text" class="form-control" readonly >
